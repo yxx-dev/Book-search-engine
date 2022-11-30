@@ -1,22 +1,22 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type User {
-    _id: ID
-    username: String
-    email: String
-    password: String
-    books: [Book]
-  }
-
   type Book {
     _id: ID
-    authors: String
+    authors: [String]
     description: String!
     bookId: String!
     image: String
     link: String
     title: String!
+  }
+
+  type User {
+    _id: ID
+    username: String
+    email: String
+    password: String
+    savedBooks: [Book]
   }
 
   type Auth {
@@ -35,8 +35,8 @@ const typeDefs = gql`
     createUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    saveBook(books: String!): User
-    deleteBook(books: String!): User
+    saveBook(savedBooks: String!): User
+    deleteBook(savedBooks: String!): User
   }
 `;
 

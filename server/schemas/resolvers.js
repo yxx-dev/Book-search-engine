@@ -41,6 +41,7 @@ const resolvers = {
       }
 
       const token = signToken(user);
+
       return { token, user };
     },
 
@@ -51,7 +52,7 @@ const resolvers = {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { books: book },
+            $addToSet: { savedBooks: book },
           },
           {
             new: true,
@@ -74,7 +75,7 @@ const resolvers = {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { books: book } },
+          { $pull: { savedBooks: book } },
           { new: true }
         );
       }
