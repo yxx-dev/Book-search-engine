@@ -2,7 +2,7 @@
 
 ## Description
 A book search engine using Google Books API build with GraphQL API and Apollo Server. The app is built using the MERN stack, with a React front end, MongoDB database, and Node.js/Express.js server and API. It allows users to save book searches to the back end.
-Deployment: 
+Deployment: https://limitless-lowlands-34659.herokuapp.com/
 
 ## Table of Contents
 NA
